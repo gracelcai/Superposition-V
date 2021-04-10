@@ -1,11 +1,63 @@
 <!DOCTYPE HTML>
 <html>
+  <head>
+    <title>V Kitchen</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-<body>
+    <style>
+      /* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+.sidenav {
+  width: 200px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 10; /* Stay at the top */
+  left: 10;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+.main {
+  margin-left: 200px;
+  font-size: 16;
+  padding: 0px 10px;
+}
+    
+    </style>
+  </head>
+<header>
   <h1>Welcome to your profile!</h1>
-  <p>This is where you can store all of your recipes and food preferences.</p>
-
+  <p>This is where you can store all of your recipes and food preferences. Your achievements will also show up here!</p>
+</header>
+<body>
+  <div class="sidenav">
+    <a href="#">Profile</a>
+    <a href="#">Your Recipes</a>
+    <a href="#">Saved Recipes</a>
+    <a href="#">Contact</a>
+  </div>
+ 
   
+  <div class="main">
+    <p>hello here are your recipes</p>
+  </div>
 
   <p>...After the script.</p>
 
