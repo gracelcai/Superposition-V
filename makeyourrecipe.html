@@ -184,16 +184,31 @@
             });
     </script>
     <div class="main">
-        <form id="add-ingredient-form">
-            <p>
-                <font size="4"><b>Make a new recipe:</b></font>
-            </p>
-            <input type="text" name="recipe" placeholder="Recipe Name">
-            <button>Set Name</button>
-            <input type="text" name="ingredient" placeholder="Ingredient Name">
-            <input type="text" name="amount" placeholder="Ingredient Amount">
-            <button>Add Ingredient</button>
-        </form>
+        <!--<form id="add-ingredient-form">-->
+        <p>
+            <font size="4"><b>Make a new recipe:</b></font>
+        </p>
+        <input type="text" name="recipe" id="recipe" placeholder="Recipe Name">
+        <button onclick="display()">Set Name</button>
+        <p id="printname"> </p>
+        <script>
+            function display() {
+                var rnme = document.getElementById("recipe").value;
+                document.getElementById("printname").innerHTML = rnme;
+            }
+        </script>
+        <input type="text" name="ingredient" id="name" placeholder="Ingredient Name">
+        <input type="text" name="amount" id="amount" placeholder="Ingredient Amount">
+        <button onclick="myFunction()">Add Ingredient</button>
+        <p id="printint"> </p>
+        <script>
+            function myFunction() {
+                var amt = document.getElementById("amount").value;
+                var nme = document.getElementById("name").value;
+                document.getElementById("printint").innerHTML = nme + amt;
+            }
+        </script>
+        <!--</form>-->
 
 
     </div>
