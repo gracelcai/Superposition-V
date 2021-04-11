@@ -44,6 +44,11 @@
         font-size: 16;
         padding: 0px 10px;
       }
+      .view input {
+        border: 0;
+        background: 0;
+        outline: auto;
+      }
     </style>
   </head>
   <header>
@@ -67,9 +72,29 @@
         alt="profile picture"
       />
       <h3>Bio</h3>
-      <div contenteditable="true">
-        <p>Tell us about yourself!</p>
-      </div>
+      <script type="text/javascript">
+        function addRemoveAttr() {
+          var contenteditable = document.getElementById("bio").contentEditable;
+          var text = document.getElementById("bio");
+          var button = document.getElementById("but_enable");
+          if (contenteditable == "inherit" || contenteditable == "false") {
+            document.getElementById("bio").contentEditable = true;
+            text.focus;
+            button.value = "save";
+          } else {
+            document.getElementById("bio").contentEditable = false;
+            button.value = "edit";
+          }
+        }
+      </script>
+
+      <div class="editable" id="bio">About you!</div>
+      <input
+        type="button"
+        id="but_enable"
+        value="edit"
+        onclick="addRemoveAttr();"
+      />
     </div>
 
     <p>...After the script.</p>

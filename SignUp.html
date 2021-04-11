@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css"
+  />
+  <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+</head>
+<body>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+      apiKey: "AIzaSyC0vDOGfkjlCO3r6tz_7mdzApUK1ZIKpQM",
+      authDomain: "profile-2d5f2.firebaseapp.com",
+      projectId: "profile-2d5f2",
+      storageBucket: "profile-2d5f2.appspot.com",
+      messagingSenderId: "115453659630",
+      appId: "1:115453659630:web:02837f3f612a2b5ba7a6ff",
+      measurementId: "G-R0DD5HXXT2",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+  <div id="firebaseui-auth-container"></div>
+  <script>
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+    ui.start("#firebaseui-auth-container", {
+      signInOptions: [firebase.auth.EmailAuthProvider.PROVIDER_ID],
+      // Other config options...
+    });
+    var db = firebase.firestore();
+    db.collection("recipes")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          var list = document.getElementById("recipes");
+          var entry = document.createElement("li");
+          entry.appendChild(document.createTextNode(doc.data()["Name"]));
+          list.appendChild(entry);
+          console.log(JSON.stringify(doc.data()));
+        });
+      });
+  </script>
+</body>
+<div>
+  <ul id="recipes"></ul>
+</div>
