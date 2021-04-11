@@ -138,15 +138,15 @@
     </div>
     <!--this will be the format for adding ingredients-->
     <!--this section MAY NEED TO BE EDITED TO MOVE IT AROUND-->
-    <div class="content">
+    <!--<div class="content">
         <form id="add-ingredient-form">
-            position: relative;
+
             <input type="text" name="ingredient" placeholder="ingredient name">
             <input type="text" name="amount" placeholder="ingredient amount">
             <button>Add Ingredient</button>
         </form>
 
-    </div>
+    </div>-->
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -184,53 +184,18 @@
             });
     </script>
     <div class="main">
-        <p>Here are the recipes that you've created.</p>
+        <form id="add-ingredient-form">
+            <p>
+                <font size="4"><b>Make a new recipe:</b></font>
+            </p>
+            <input type="text" name="recipe" placeholder="Recipe Name">
+            <button>Set Name</button>
+            <input type="text" name="ingredient" placeholder="Ingredient Name">
+            <input type="text" name="amount" placeholder="Ingredient Amount">
+            <button>Add Ingredient</button>
+        </form>
 
-        <div>
-            <ul id="recipes"></ul>
-        </div>
-        <div id="accordion"></div>
 
-        <script>
-            db.collection("recipes")
-                .get()
-                .then((s) => {
-                    $("#station").html(""); // This will empty your station button
-                    $("#station_box").html(""); // This will empty your station box
-                    var n = 0;
-                    s.forEach(function(x) {
-                        $("#accordion").append(
-                            `
-<div class="card">
-  <div class="card-header" id="heading` +
-                            n +
-                            `">
-      <h5 class="mb-0">
-          <button class="btn btn-link" data-toggle="collapse" data-target="#collapse` +
-                            n +
-                            `">` +
-                            x.data().Name +
-                            `</button>
-      </h5>
-   </div>
-
-   <div id="collapse` +
-                            n +
-                            `" class="collapse" data-parent="#accordion">
-      <div class="card-body">
-         <p>` +
-                            x.data().Description +
-                            `</p>
-      </div>
-   </div>
-</div>
-`
-                        );
-
-                        n += 1;
-                    });
-                });
-        </script>
     </div>
     <span id="Name"></span>
 
