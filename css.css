@@ -19,15 +19,31 @@ nav{
     display: flex; 
     align-items:center; 
 }
-.logo img{
+.Vkitchen{
+    flex-basis: 20%;
+}
+.VKitchen img{
     width: 300px;
 }
 .nav-links{
     flex:1;
     text-align: right; 
 }
-.nav-links{
+.nav-links ul li{
     list-style:none;
     display: inline-block;
     margin: 0 20px; 
+}
+.nav-links ul li a{
+    color: #DB9465;
+    text-decoration: none;
+}
+#circle{
+    width: 1500px;
+    height: 1500px;
+    position: absolute; 
+    top: 0;
+    left: 0; 
+    border-radius: 50%;
+    background: #DB9465
 }
