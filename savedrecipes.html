@@ -23,6 +23,48 @@
         display: -webkit-flex;
         display: flex;
       }
+      body {
+        margin: 0;
+      }
+
+      ul.topnav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #6b330e;
+      }
+
+      ul.topnav li {
+        float: left;
+      }
+
+      ul.topnav li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      ul.topnav li a:hover:not(.active) {
+        background-color: #bc7032;
+      }
+
+      ul.topnav li a.active {
+        background-color: #afbe49;
+      }
+
+      ul.topnav li.right {
+        float: right;
+      }
+
+      @media screen and (max-width: 600px) {
+        ul.topnav li.right,
+        ul.topnav li {
+          float: none;
+        }
+      }
       .sidenav {
         width: 200px; /* Set the width of the sidebar */
         position: fixed; /* Fixed Sidebar (stay in place on scroll) */
@@ -68,20 +110,18 @@
   </header>
   <body>
     <nav>
-      <img src="images/V Kitchen.png" />
-      <div class="nav-links"> 
-       <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Recipes</a></li>
-          <li><a href="profile.html">Profile</a></li>
-       </ul>
-     </div>
+      <ul class="topnav">
+        <li><a class="active" href="home.html">Home</a></li>
+        <li><a href="userrecipes.html">Recipes</a></li>
+        <li class="right"><a href="profile.html">Profile</a></li>
+      </ul>
     </nav>
+    <img src="images/V Kitchen.png" />
     <div class="sidenav">
       <a href="profile.html">Profile</a>
       <a href="userrecipes.html">Your Recipes</a>
       <a href="savedrecipes.html">Saved Recipes</a>
-      <a href="SignUp.html">Sign Out</a>
+      <a href="home.html">Sign Out</a>
     </div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 
