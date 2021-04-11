@@ -23,6 +23,30 @@
         display: -webkit-flex;
         display: flex;
       }
+      .topnav {
+        height: 50px; /* Set the width of the sidebar */
+        position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+        z-index: 1; /* Stay on top */
+        top: 10; /* Stay at the top */
+        left: 10;
+        background-color: #111; /* Black */
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 20px;
+      }
+
+      /* The navigation menu links */
+      .topnav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+      }
+
+      /* When you mouse over the navigation links, change their color */
+      .topnav a:hover {
+        color: #f1f1f1;
+      }
       .sidenav {
         width: 200px; /* Set the width of the sidebar */
         position: fixed; /* Fixed Sidebar (stay in place on scroll) */
@@ -69,13 +93,11 @@
   <body>
     <nav>
       <img src="images/V Kitchen.png" />
-      <div class="nav-links"> 
-       <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Recipes</a></li>
-          <li><a href="profile.html">Profile</a></li>
-       </ul>
-     </div>
+      <div class="sidenav">
+        <a href="home.html">Home</a>
+        <a href="userrecipes.html">Recipes</a>
+        <a href="profile.html">Profile</a>
+      </div>
     </nav>
     <div class="sidenav">
       <a href="profile.html">Profile</a>

@@ -1,95 +1,125 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <style>
-        img {
-            width: 100px;
-        }
-        
-        body {
-            background-image: url("images/website background2.png");
-            background-size: cover;
-        }
+      img {
+        width: 100px;
+      }
+
+      body {
+        background-image: url("images/website background2.png");
+        background-size: cover;
+      }
+      .topnav {
+        height: 50px; /* Set the width of the sidebar */
+        position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+        z-index: 1; /* Stay on top */
+        top: 10; /* Stay at the top */
+        left: 10;
+        background-color: #111; /* Black */
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 20px;
+      }
+
+      /* The navigation menu links */
+      .topnav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+      }
+
+      /* When you mouse over the navigation links, change their color */
+      .topnav a:hover {
+        color: #f1f1f1;
+      }
     </style>
     <script src="jquery.js"></script>
     <script>
-        $(function() {
-            $("#navigation").load("headernav.html");
-        });
+      $(function () {
+        $("#navigation").load("headernav.html");
+      });
     </script>
     <div w3-include-html="headernav.html"></div>
     <script>
-        function includeHTML() {
-            var z, i, elmnt, file, xhttp;
-            /* Loop through a collection of all HTML elements: */
-            z = document.getElementsByTagName("*");
-            for (i = 0; i < z.length; i++) {
-                elmnt = z[i];
-                /*search for elements with a certain atrribute:*/
-                file = elmnt.getAttribute("w3-include-html");
-                if (file) {
-                    /* Make an HTTP request using the attribute value as the file name: */
-                    xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4) {
-                            if (this.status == 200) {
-                                elmnt.innerHTML = this.responseText;
-                            }
-                            if (this.status == 404) {
-                                elmnt.innerHTML = "Page not found.";
-                            }
-                            /* Remove the attribute, and call this function once more: */
-                            elmnt.removeAttribute("w3-include-html");
-                            includeHTML();
-                        }
-                    };
-                    xhttp.open("GET", file, true);
-                    xhttp.send();
-                    /* Exit the function: */
-                    return;
+      function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /* Loop through a collection of all HTML elements: */
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+          elmnt = z[i];
+          /*search for elements with a certain atrribute:*/
+          file = elmnt.getAttribute("w3-include-html");
+          if (file) {
+            /* Make an HTTP request using the attribute value as the file name: */
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+              if (this.readyState == 4) {
+                if (this.status == 200) {
+                  elmnt.innerHTML = this.responseText;
                 }
-            }
+                if (this.status == 404) {
+                  elmnt.innerHTML = "Page not found.";
+                }
+                /* Remove the attribute, and call this function once more: */
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+              }
+            };
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /* Exit the function: */
+            return;
+          }
         }
+      }
     </script>
     <script>
-        includeHTML();
+      includeHTML();
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav>
-        <img src="images/V Kitchen.png" />
-        <div class="nav-links"> 
-         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Recipes</a></li>
-            <li><a href="profile.html">Profile</a></li>
-         </ul>
-       </div>
-      </nav>
+      <img src="images/V Kitchen.png" />
+      <div class="sidenav">
+        <a href="home.html">Home</a>
+        <a href="userrecipes.html">Recipes</a>
+        <a href="profile.html">Profile</a>
+      </div>
+    </nav>
     <div id="w3-include-html"></div>
     <img src="images/V Kitchen.png" />
     <h1>
-        <center>
-            <font size="12" face="Quicksand" color="#F7EB95">V Kitchen</font>
-        </center>
+      <center>
+        <font size="12" face="Quicksand" color="#F7EB95">V Kitchen</font>
+      </center>
     </h1>
     <p>
-        <center>
-            <font size="4" face="Quicksand" color="#F7EB95"><b>Welcome to V Kitchen, a community to share and save vegan/vegetarian recipes.</b></font>
-        </center>
+      <center>
+        <font size="4" face="Quicksand" color="#F7EB95"
+          ><b
+            >Welcome to V Kitchen, a community to share and save
+            vegan/vegetarian recipes.</b
+          ></font
+        >
+      </center>
     </p>
     <p>
-        <center>
-            <font size="4" face="Quicksand" color="#F7EB95"><b>Our goal is to promote sustainable eating to help save the environment. Click the link below to create an account or login.</b></font>
-        </center>
+      <center>
+        <font size="4" face="Quicksand" color="#F7EB95"
+          ><b
+            >Our goal is to promote sustainable eating to help save the
+            environment. Click the link below to create an account or login.</b
+          ></font
+        >
+      </center>
     </p>
     <a href="SignUp.html">
-        <center>
-            <font face="Quicksand" size="+2"><strong>Sign Up/Log In</strong></font>
-        </center>
+      <center>
+        <font face="Quicksand" size="+2"><strong>Sign Up/Log In</strong></font>
+      </center>
     </a>
-</body>
-
+  </body>
 </html>
