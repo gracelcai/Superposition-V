@@ -19,8 +19,16 @@ nav {
   display: flex;
   align-items: center;
 }
+<<<<<<< HEAD
 .logo img {
   width: 50px;
+=======
+.Vkitchen{
+    flex-basis: 20%;
+}
+.VKitchen img{
+    width: 300px;
+>>>>>>> b93dd0fa3b98fa4d959f729332390acbf02d8485
 }
 .nav-links {
   flex: 1;
@@ -31,3 +39,24 @@ nav {
   display: inline-block;
   margin: 0 20px;
 }
+<<<<<<< HEAD
+=======
+.nav-links ul li{
+    list-style:none;
+    display: inline-block;
+    margin: 0 20px; 
+}
+.nav-links ul li a{
+    color: #DB9465;
+    text-decoration: none;
+}
+#circle{
+    width: 1500px;
+    height: 1500px;
+    position: absolute; 
+    top: 0;
+    left: 0; 
+    border-radius: 50%;
+    background: #DB9465
+}
+>>>>>>> b93dd0fa3b98fa4d959f729332390acbf02d8485
