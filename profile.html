@@ -15,29 +15,47 @@
         display: -webkit-flex;
         display: flex;
       }
-      .topnav {
-        height: 50px; /* Set the width of the sidebar */
-        position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-        z-index: 1; /* Stay on top */
-        top: 10; /* Stay at the top */
-        left: 10;
-        background-color: #111; /* Black */
-        overflow-x: hidden; /* Disable horizontal scroll */
-        padding-top: 20px;
+      body {
+        margin: 0;
       }
 
-      /* The navigation menu links */
-      .topnav a {
-        padding: 6px 8px 6px 16px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
+      ul.topnav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #6b330e;
+      }
+
+      ul.topnav li {
+        float: left;
+      }
+
+      ul.topnav li a {
         display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
       }
 
-      /* When you mouse over the navigation links, change their color */
-      .topnav a:hover {
-        color: #f1f1f1;
+      ul.topnav li a:hover:not(.active) {
+        background-color: #bc7032;
+      }
+
+      ul.topnav li a.active {
+        background-color: #afbe49;
+      }
+
+      ul.topnav li.right {
+        float: right;
+      }
+
+      @media screen and (max-width: 600px) {
+        ul.topnav li.right,
+        ul.topnav li {
+          float: none;
+        }
       }
       .sidenav {
         width: 200px; /* Set the width of the sidebar */
@@ -84,18 +102,18 @@
   </header>
   <body>
     <nav>
-      <img src="images/V Kitchen.png" />
-      <div class="sidenav">
-        <a href="home.html">Home</a>
-        <a href="userrecipes.html">Recipes</a>
-        <a href="profile.html">Profile</a>
-      </div>
+      <ul class="topnav">
+        <li><a class="active" href="home.html">Home</a></li>
+        <li><a href="userrecipes.html">Recipes</a></li>
+        <li class="right"><a href="profile.html">Profile</a></li>
+      </ul>
     </nav>
+    <img src="images/V Kitchen.png" />
     <div class="sidenav">
       <a href="profile.html">Profile</a>
       <a href="userrecipes.html">Your Recipes</a>
       <a href="savedrecipes.html">Saved Recipes</a>
-      <a href="SignUp.html">Sign Out</a>
+      <a href="home.html">Sign Out</a>
     </div>
 
     <div class="main">
