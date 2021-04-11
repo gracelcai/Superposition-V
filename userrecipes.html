@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>V Kitchen</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css"
+    />
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+    <style>
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+      }
+      /* Container for flexboxes */
+      section {
+        display: -webkit-flex;
+        display: flex;
+      }
+      .sidenav {
+        width: 200px; /* Set the width of the sidebar */
+        position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+        z-index: 1; /* Stay on top */
+        top: 10; /* Stay at the top */
+        left: 10;
+        background-color: #111; /* Black */
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 20px;
+      }
+
+      /* The navigation menu links */
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+      }
+
+      /* When you mouse over the navigation links, change their color */
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+      .main {
+        margin-left: 200px;
+        font-size: 16;
+        padding: 0px 10px;
+      }
+      .view input {
+        border: 0;
+        background: 0;
+        outline: auto;
+      }
+    </style>
+  </head>
+  <header>
+    <h1>Welcome to your profile!</h1>
+    <p>
+      This is where you can store all of your recipes and food preferences. Your
+      achievements will also show up here!
+    </p>
+  </header>
+  <body>
+    <div class="sidenav">
+      <a href="profile.html">Profile</a>
+      <a href="#">Your Recipes</a>
+      <a href="#">Saved Recipes</a>
+      <a href="#">Contact</a>
+    </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyC0vDOGfkjlCO3r6tz_7mdzApUK1ZIKpQM",
+        authDomain: "profile-2d5f2.firebaseapp.com",
+        projectId: "profile-2d5f2",
+        storageBucket: "profile-2d5f2.appspot.com",
+        messagingSenderId: "115453659630",
+        appId: "1:115453659630:web:02837f3f612a2b5ba7a6ff",
+        measurementId: "G-R0DD5HXXT2",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <script>
+      var db = firebase.firestore();
+      db.collection("recipes")
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            var list = document.getElementById("recipes");
+            var entry = document.createElement("li");
+            entry.appendChild(document.createTextNode(doc.data()["Name"]));
+            list.appendChild(entry);
+            console.log(JSON.stringify(doc.data()));
+          });
+        });
+    </script>
+    <div class="main">
+      <div>
+        <ul id="recipes"></ul>
+      </div>
+      <div id="accordion"></div>
+
+      <script>
+        db.collection("recipes")
+          .get()
+          .then((s) => {
+            $("#station").html(""); // This will empty your station button
+            $("#station_box").html(""); // This will empty your station box
+            var n = 0;
+            s.forEach(function (x) {
+              $("#accordion").append(
+                `
+<div class="card">
+  <div class="card-header" id="heading` +
+                  n +
+                  `">
+      <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapse` +
+                  n +
+                  `">` +
+                  x.data().Name +
+                  `</button>
+      </h5>
+   </div>
+
+   <div id="collapse` +
+                  n +
+                  `" class="collapse" data-parent="#accordion">
+      <div class="card-body">
+         <p>` +
+                  x.data().ForwardPower +
+                  `</p>
+      </div>
+   </div>
+</div>
+`
+              );
+
+              n += 1;
+            });
+          });
+      </script>
+    </div>
+  </body>
+</html>

@@ -49,24 +49,7 @@
         },
       },
     });
-
-    var db = firebase.firestore();
-    db.collection("recipes")
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          var list = document.getElementById("recipes");
-          var entry = document.createElement("li");
-          entry.appendChild(document.createTextNode(doc.data()["Name"]));
-          list.appendChild(entry);
-          console.log(JSON.stringify(doc.data()));
-        });
-      });
   </script>
   <!-- The surrounding HTML is left untouched by FirebaseUI.
      Your app may use that space for branding, controls and other customizations.-->
-
-  <div>
-    <ul id="recipes"></ul>
-  </div>
 </body>
