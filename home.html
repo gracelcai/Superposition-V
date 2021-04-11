@@ -1,65 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <style>
-      img {
-        width: 100px;
-      }
+        img {
+            width: 100px;
+        }
     </style>
     <script src="jquery.js"></script>
     <script>
-      $(function () {
-        $("#navigation").load("headernav.html");
-      });
+        $(function() {
+            $("#navigation").load("headernav.html");
+        });
     </script>
     <div w3-include-html="headernav.html"></div>
     <script>
-      function includeHTML() {
-        var z, i, elmnt, file, xhttp;
-        /* Loop through a collection of all HTML elements: */
-        z = document.getElementsByTagName("*");
-        for (i = 0; i < z.length; i++) {
-          elmnt = z[i];
-          /*search for elements with a certain atrribute:*/
-          file = elmnt.getAttribute("w3-include-html");
-          if (file) {
-            /* Make an HTTP request using the attribute value as the file name: */
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-              if (this.readyState == 4) {
-                if (this.status == 200) {
-                  elmnt.innerHTML = this.responseText;
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /* Loop through a collection of all HTML elements: */
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    /* Make an HTTP request using the attribute value as the file name: */
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                elmnt.innerHTML = this.responseText;
+                            }
+                            if (this.status == 404) {
+                                elmnt.innerHTML = "Page not found.";
+                            }
+                            /* Remove the attribute, and call this function once more: */
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    };
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    /* Exit the function: */
+                    return;
                 }
-                if (this.status == 404) {
-                  elmnt.innerHTML = "Page not found.";
-                }
-                /* Remove the attribute, and call this function once more: */
-                elmnt.removeAttribute("w3-include-html");
-                includeHTML();
-              }
-            };
-            xhttp.open("GET", file, true);
-            xhttp.send();
-            /* Exit the function: */
-            return;
-          }
+            }
         }
-      }
     </script>
     <script>
-      includeHTML();
+        includeHTML();
     </script>
-  </head>
+</head>
 
-  <body>
+<body style="background-color:#8FA225">
     <div id="w3-include-html"></div>
     <img src="images/V Kitchen.png" />
     <h1>V Kitchen</h1>
     <p>
-      Welcome to V Kitchen, a community to share and save vegan/vegetarian
-      recipes. Our goal is to promote sustainable eating to help save the
-      environment. Click the link below to create an account or login.
+        Welcome to V Kitchen, a community to share and save vegan/vegetarian recipes. Our goal is to promote sustainable eating to help save the environment. Click the link below to create an account or login.
     </p>
     <a href="SignUp.html">Sign Up/Log In</a>
-  </body>
+</body>
+
 </html>
