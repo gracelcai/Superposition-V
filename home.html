@@ -1,122 +1,122 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <style>
-      img {
-        width: 100px;
-      }
-
-      body {
-        background-image: url("images/website background2.png");
-        background-size: cover;
-      }
-      body {
-        margin: 0;
-      }
-
-      ul.topnav {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #6b330e;
-      }
-
-      ul.topnav li {
-        float: left;
-      }
-
-      ul.topnav li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-
-      ul.topnav li a:hover:not(.active) {
-        background-color: #bc7032;
-      }
-
-      ul.topnav li a.active {
-        background-color: #afbe49;
-      }
-
-      ul.topnav li.right {
-        float: right;
-      }
-
-      @media screen and (max-width: 600px) {
-        ul.topnav li.right,
-        ul.topnav li {
-          float: none;
+        img {
+            width: 100px;
         }
-      }
+        
+        body {
+            background-image: url("images/website background2.png");
+            background-size: cover;
+        }
+        
+        body {
+            margin: 0;
+        }
+        
+        ul.topnav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #6b330e;
+        }
+        
+        ul.topnav li {
+            float: left;
+        }
+        
+        ul.topnav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        ul.topnav li a:hover:not(.active) {
+            background-color: #bc7032;
+        }
+        
+        ul.topnav li a.active {
+            background-color: #afbe49;
+        }
+        
+        ul.topnav li.right {
+            float: right;
+        }
+        
+        @media screen and (max-width: 600px) {
+            ul.topnav li.right,
+            ul.topnav li {
+                float: none;
+            }
+        }
     </style>
     <script src="jquery.js"></script>
     <script>
-      $(function () {
-        $("#navigation").load("headernav.html");
-      });
+        $(function() {
+            $("#navigation").load("headernav.html");
+        });
     </script>
     <div w3-include-html="headernav.html"></div>
     <script>
-      function includeHTML() {
-        var z, i, elmnt, file, xhttp;
-        /* Loop through a collection of all HTML elements: */
-        z = document.getElementsByTagName("*");
-        for (i = 0; i < z.length; i++) {
-          elmnt = z[i];
-          /*search for elements with a certain atrribute:*/
-          file = elmnt.getAttribute("w3-include-html");
-          if (file) {
-            /* Make an HTTP request using the attribute value as the file name: */
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-              if (this.readyState == 4) {
-                if (this.status == 200) {
-                  elmnt.innerHTML = this.responseText;
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /* Loop through a collection of all HTML elements: */
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    /* Make an HTTP request using the attribute value as the file name: */
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) {
+                                elmnt.innerHTML = this.responseText;
+                            }
+                            if (this.status == 404) {
+                                elmnt.innerHTML = "Page not found.";
+                            }
+                            /* Remove the attribute, and call this function once more: */
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    };
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    /* Exit the function: */
+                    return;
                 }
-                if (this.status == 404) {
-                  elmnt.innerHTML = "Page not found.";
-                }
-                /* Remove the attribute, and call this function once more: */
-                elmnt.removeAttribute("w3-include-html");
-                includeHTML();
-              }
-            };
-            xhttp.open("GET", file, true);
-            xhttp.send();
-            /* Exit the function: */
-            return;
-          }
+            }
         }
-      }
     </script>
     <script>
-      includeHTML();
+        includeHTML();
     </script>
-  </head>
+</head>
 
-  <body>
+<body style="font-family: Quicksand">
     <nav>
-      <ul class="topnav">
-        <li><a class="active" href="home.html">Home</a></li>
-        <li><a href="userrecipes.html">Recipes</a></li>
-        <li class="right"><a href="profile.html">Profile</a></li>
-      </ul>
+        <ul class="topnav">
+            <li><a class="active" href="home.html">Home</a></li>
+            <li><a href="userrecipes.html">Recipes</a></li>
+            <li class="right"><a href="profile.html">Profile</a></li>
+        </ul>
     </nav>
     <img src="images/V Kitchen.png" />
     <h1>
-      <center>
-        <font size="12" face="Quicksand" color="#F7EB95">V Kitchen</font>
-      </center>
+        <center>
+            <font size="12" face="Quicksand" color="#F7EB95">V Kitchen</font>
+        </center>
     </h1>
     <p>
-      <center>
-        <font size="4" face="Quicksand" color="#F7EB95"
-          ><b
-            >Welcome to V Kitchen, a community to share and save
+        <center>
+            <font size="4" face="Quicksand" color="#F7EB95"><b>Welcome to V Kitchen, a community to share and save
             vegan/vegetarian recipes.</b
           ></font
         >

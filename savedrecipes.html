@@ -1,127 +1,139 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>V Kitchen</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css"
-    />
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
     <style>
-      img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50px;
-      }
-      /* Container for flexboxes */
-      section {
-        display: -webkit-flex;
-        display: flex;
-      }
-      body {
-        margin: 0;
-      }
-
-      ul.topnav {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #6b330e;
-      }
-
-      ul.topnav li {
-        float: left;
-      }
-
-      ul.topnav li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-
-      ul.topnav li a:hover:not(.active) {
-        background-color: #bc7032;
-      }
-
-      ul.topnav li a.active {
-        background-color: #afbe49;
-      }
-
-      ul.topnav li.right {
-        float: right;
-      }
-
-      @media screen and (max-width: 600px) {
-        ul.topnav li.right,
-        ul.topnav li {
-          float: none;
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
         }
-      }
-      .sidenav {
-        width: 200px; /* Set the width of the sidebar */
-        position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-        z-index: 1; /* Stay on top */
-        top: 10; /* Stay at the top */
-        left: 10;
-        background-color: #111; /* Black */
-        overflow-x: hidden; /* Disable horizontal scroll */
-        padding-top: 20px;
-      }
-
-      /* The navigation menu links */
-      .sidenav a {
-        padding: 6px 8px 6px 16px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #818181;
-        display: block;
-      }
-
-      /* When you mouse over the navigation links, change their color */
-      .sidenav a:hover {
-        color: #f1f1f1;
-      }
-      .main {
-        margin-left: 200px;
-        font-size: 16;
-        padding: 0px 10px;
-      }
-      .view input {
-        border: 0;
-        background: 0;
-        outline: auto;
-      }
+        /* Container for flexboxes */
+        
+        section {
+            display: -webkit-flex;
+            display: flex;
+        }
+        
+        body {
+            margin: 0;
+            background-image: url("images/profilebg.png");
+            background-size: cover;
+        }
+        
+        ul.topnav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #6b330e;
+        }
+        
+        ul.topnav li {
+            float: left;
+        }
+        
+        ul.topnav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        ul.topnav li a:hover:not(.active) {
+            background-color: #bc7032;
+        }
+        
+        ul.topnav li a.active {
+            background-color: #afbe49;
+        }
+        
+        ul.topnav li.right {
+            float: right;
+        }
+        
+        @media screen and (max-width: 600px) {
+            ul.topnav li.right,
+            ul.topnav li {
+                float: none;
+            }
+        }
+        
+        .sidenav {
+            width: 200px;
+            /* Set the width of the sidebar */
+            position: fixed;
+            /* Fixed Sidebar (stay in place on scroll) */
+            z-index: 1;
+            /* Stay on top */
+            top: 10;
+            /* Stay at the top */
+            left: 10;
+            background-color: #111;
+            /* Black */
+            overflow-x: hidden;
+            /* Disable horizontal scroll */
+            padding-top: 20px;
+        }
+        /* The navigation menu links */
+        
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+        }
+        /* When you mouse over the navigation links, change their color */
+        
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+        
+        .main {
+            margin-left: 200px;
+            font-size: 16;
+            padding: 0px 10px;
+        }
+        
+        .view input {
+            border: 0;
+            background: 0;
+            outline: auto;
+        }
     </style>
-  </head>
-  <header>
-    <h1>Welcome to your profile!</h1>
+</head>
+<header>
+    <h1>
+        <font face="Quicksand">Welcome to your profile!</font>
+    </h1>
     <p>
-      This is where you can store all of your recipes and food preferences. Your
-      achievements will also show up here!
+        <font face="Quicksand">This is where you can store all of your recipes and food preferences. Your achievements will also show up here!</font>
     </p>
-  </header>
-  <body>
+</header>
+
+<body style="font-family: Quicksand">
     <nav>
-      <ul class="topnav">
-        <li><a class="active" href="home.html">Home</a></li>
-        <li><a href="userrecipes.html">Recipes</a></li>
-        <li class="right"><a href="profile.html">Profile</a></li>
-      </ul>
+        <ul class="topnav">
+            <li><a class="active" href="home.html">Home</a></li>
+            <li><a href="userrecipes.html">Recipes</a></li>
+            <li class="right"><a href="profile.html">Profile</a></li>
+        </ul>
     </nav>
     <img src="images/V Kitchen.png" />
     <div class="sidenav">
-      <a href="profile.html">Profile</a>
-      <a href="userrecipes.html">Your Recipes</a>
-      <a href="savedrecipes.html">Saved Recipes</a>
-      <a href="home.html">Sign Out</a>
+        <a href="profile.html">Profile</a>
+        <a href="userrecipes.html">Your Recipes</a>
+        <a href="savedrecipes.html">Saved Recipes</a>
+        <a href="home.html">Sign Out</a>
     </div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 
@@ -130,145 +142,146 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-analytics.js"></script>
 
     <script>
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      var firebaseConfig = {
-        apiKey: "AIzaSyC0vDOGfkjlCO3r6tz_7mdzApUK1ZIKpQM",
-        authDomain: "profile-2d5f2.firebaseapp.com",
-        projectId: "profile-2d5f2",
-        storageBucket: "profile-2d5f2.appspot.com",
-        messagingSenderId: "115453659630",
-        appId: "1:115453659630:web:02837f3f612a2b5ba7a6ff",
-        measurementId: "G-R0DD5HXXT2",
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyC0vDOGfkjlCO3r6tz_7mdzApUK1ZIKpQM",
+            authDomain: "profile-2d5f2.firebaseapp.com",
+            projectId: "profile-2d5f2",
+            storageBucket: "profile-2d5f2.appspot.com",
+            messagingSenderId: "115453659630",
+            appId: "1:115453659630:web:02837f3f612a2b5ba7a6ff",
+            measurementId: "G-R0DD5HXXT2",
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
     </script>
     <script>
-      var db = firebase.firestore();
-      db.collection("recipes")
-        .get()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            var list = document.getElementById("recipes");
-            var entry = document.createElement("li");
-            entry.appendChild(document.createTextNode(doc.data()["Name"]));
-            list.appendChild(entry);
-            console.log(JSON.stringify(doc.data()));
-          });
-        });
+        var db = firebase.firestore();
+        db.collection("recipes")
+            .get()
+            .then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    var list = document.getElementById("recipes");
+                    var entry = document.createElement("li");
+                    entry.appendChild(document.createTextNode(doc.data()["Name"]));
+                    list.appendChild(entry);
+                    console.log(JSON.stringify(doc.data()));
+                });
+            });
     </script>
     <div class="main">
-      <div>
-        <p>Here are the recipes that you've found and liked.</p>
-        <ul id="recipes"></ul>
-      </div>
-      <div id="accordion"></div>
+        <div>
+            <p>Here are the recipes that you've found and liked.</p>
+            <ul id="recipes"></ul>
+        </div>
+        <div id="accordion"></div>
 
-      <script>
-        db.collection("recipes")
-          .get()
-          .then((s) => {
-            $("#station").html(""); // This will empty your station button
-            $("#station_box").html(""); // This will empty your station box
-            var n = 0;
-            s.forEach(function (x) {
-              $("#accordion").append(
-                `
+        <script>
+            db.collection("recipes")
+                .get()
+                .then((s) => {
+                    $("#station").html(""); // This will empty your station button
+                    $("#station_box").html(""); // This will empty your station box
+                    var n = 0;
+                    s.forEach(function(x) {
+                        $("#accordion").append(
+                            `
 <div class="card">
   <div class="card-header" id="heading` +
-                  n +
-                  `">
+                            n +
+                            `">
       <h5 class="mb-0">
           <button class="btn btn-link" data-toggle="collapse" data-target="#collapse` +
-                  n +
-                  `">` +
-                  x.data().Name +
-                  `</button>
+                            n +
+                            `">` +
+                            x.data().Name +
+                            `</button>
       </h5>
    </div>
 
    <div id="collapse` +
-                  n +
-                  `" class="collapse" data-parent="#accordion">
+                            n +
+                            `" class="collapse" data-parent="#accordion">
       <div class="card-body">
          <p>` +
-                  x.data().Description +
-                  `</p>
+                            x.data().Description +
+                            `</p>
       </div>
    </div>
 </div>
 `
-              );
+                        );
 
-              n += 1;
-            });
-          });
-      </script>
+                        n += 1;
+                    });
+                });
+        </script>
     </div>
     <span id="Name"></span>
 
     <script>
-      var config = {
-        apiKey: "xxxx",
-        authDomain: "xxxx",
-        projectId: "xxxx",
-      };
-      firebase.initializeApp(config);
+        var config = {
+            apiKey: "xxxx",
+            authDomain: "xxxx",
+            projectId: "xxxx",
+        };
+        firebase.initializeApp(config);
 
-      $.extend({
-        getUrlVars: function () {
-          var vars = [],
-            hash;
-          var hashes = window.location.href
-            .slice(window.location.href.indexOf("?") + 1)
-            .split("&");
-          for (var i = 0; i < hashes.length; i++) {
-            hash = hashes[i].split("=");
-            vars.push(hash[0]);
-            vars[hash[0]] = hash[1];
-          }
-          return vars;
-        },
-        getUrlVar: function (name) {
-          return $.getUrlVars()[name];
-        },
-      });
+        $.extend({
+            getUrlVars: function() {
+                var vars = [],
+                    hash;
+                var hashes = window.location.href
+                    .slice(window.location.href.indexOf("?") + 1)
+                    .split("&");
+                for (var i = 0; i < hashes.length; i++) {
+                    hash = hashes[i].split("=");
+                    vars.push(hash[0]);
+                    vars[hash[0]] = hash[1];
+                }
+                return vars;
+            },
+            getUrlVar: function(name) {
+                return $.getUrlVars()[name];
+            },
+        });
 
-      $(document).ready(function () {
-        var documentID = $.getUrlVar("contentId");
+        $(document).ready(function() {
+            var documentID = $.getUrlVar("contentId");
 
-        firebase
-          .firestore()
-          .collection("recipes")
-          .doc(documentID)
-          .get()
-          .then(function (doc) {
-            if (doc.exists) {
-              $("#Name").text(doc.data().Name);
-            } else {
-              // doc.data() will be undefined in this case
-              console.log("No such document!");
-            }
-          })
-          .catch(function (error) {
-            console.log("Error getting document:", error);
-          });
-      });
+            firebase
+                .firestore()
+                .collection("recipes")
+                .doc(documentID)
+                .get()
+                .then(function(doc) {
+                    if (doc.exists) {
+                        $("#Name").text(doc.data().Name);
+                    } else {
+                        // doc.data() will be undefined in this case
+                        console.log("No such document!");
+                    }
+                })
+                .catch(function(error) {
+                    console.log("Error getting document:", error);
+                });
+        });
     </script>
     <script>
-      firebase
-        .auth()
-        .signOut()
-        .then(
-          function () {
-            // Sign-out successful.
-          },
-          function (error) {
-            // An error happened.
-          }
-        );
+        firebase
+            .auth()
+            .signOut()
+            .then(
+                function() {
+                    // Sign-out successful.
+                },
+                function(error) {
+                    // An error happened.
+                }
+            );
     </script>
-  </body>
+</body>
+
 </html>

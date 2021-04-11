@@ -1,11 +1,11 @@
 const form = document.querySelector('#add-ingredient-form')
-//getting data
-db.collection('ingredients').get().then((snapshot) =>{
-    snapshot.docs.forEach(doc => {
-        renderIngredient(doc); 
+    //getting data
+db.collection('ingredients').get().then((snapshot) => {
+        snapshot.docs.forEach(doc => {
+            renderIngredient(doc);
+        })
     })
-})
-//saving data
+    //saving data
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     db.collection('ingredients').add({
