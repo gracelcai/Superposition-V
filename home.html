@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VKitchen</title>
     <link rel="CSS sheet" href="CSS.css" />
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="jquery.js"></script>
+    <script>
+      $(function () {
+        $("#navigation").load("headernav.html");
+      });
+    </script>
   </head>
 
   <body>
-    <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/assets/php/"; include($IPATH.headernav.html); ?>
-    <div class="main"></div>
-    <nav>
-      <div class="logo">
-        <ul>
-          <!-- Insert links to link to other pages :) <li><a href="" </li>-->
-        </ul>
-      </div>
-    </nav>
+    <div id="navigation"></div>
   </body>
 </html>
