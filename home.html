@@ -7,24 +7,14 @@
   </head>
 
   <body>
+    <?php $IPATH = $_SERVER["DOCUMENT_ROOT"]."/assets/php/"; include($IPATH.headernav.html); ?>
     <div class="main"></div>
     <nav>
       <div class="logo">
-        <img src="images/V Kitchen.png" />
         <ul>
           <!-- Insert links to link to other pages :) <li><a href="" </li>-->
         </ul>
       </div>
     </nav>
-    <script></script>
-    <!--Navigation bar-->
-    <div id="nav-placeholder"></div>
-
-    <script>
-      $(function () {
-        $("#nav-placeholder").load("nav.html");
-      });
-    </script>
-    <!--end of Navigation bar-->
   </body>
 </html>
