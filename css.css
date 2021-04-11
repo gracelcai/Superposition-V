@@ -55,7 +55,7 @@ nav {
     height: 1500px;
     position: absolute; 
     top: 0;
-    left: 0; 
+    left: -40%; 
     border-radius: 50%;
     background: #DB9465
 }
